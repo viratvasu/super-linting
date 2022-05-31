@@ -5,4 +5,6 @@ def func2():
 
 a=10
 b=12
+c=a+b
+print(c)
 print(b)
