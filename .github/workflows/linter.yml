@@ -40,7 +40,7 @@ jobs:
         uses: rbialon/flake8-annotations@v1
 
       - name: Lint with flake8
-        run: flake8 .
+        run: flake8 --filename=./testing-code/test4.py
 
   # - name: Run linters
   #   uses: wearerequired/lint-action@v2
