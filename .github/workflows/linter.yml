@@ -1,27 +1,32 @@
-name: Lint Code Base
-
-# Documentation:
-# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+name: Lint
 
 on:
   # push:
-  #   branches-ignore: [master, main]
-  #   # Remove the line above to run when pushing to master
+  #   branches:
+  #     - master
   pull_request:
-    branches: [master, main]
+    branches:
+      - master
 
 jobs:
-  build:
-    name: Lint Code Base
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
         with:
-          fetch-depth: 0
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          # DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install flake8
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          black: false
+          flake8: true
