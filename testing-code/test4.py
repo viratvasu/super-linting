@@ -1,9 +1,10 @@
-def a():
+def funca():
     pass
 
 
-def b():
+def funcb():
     pass
+
 
 a = 10
 b = 20
