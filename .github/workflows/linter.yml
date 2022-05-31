@@ -34,7 +34,11 @@ jobs:
       - name: List with flake8
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            flake8 --filename=./"$file"
+            if [ "${file: -3}" == ".py" ]
+            then
+              echo "flake8 --filename=./$file"
+              flake8 --filename=./$file
+            fi
           done
 
       # - name: Lint with flake8
