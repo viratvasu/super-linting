@@ -27,6 +27,8 @@ jobs:
 
       - name: Setup flake8 annotations
         uses: rbialon/flake8-annotations@v1
+
+      - name: Lint with flake8
         run: git diff -U0 --relative | flake8 --diff
 
       # - name: Run linters
