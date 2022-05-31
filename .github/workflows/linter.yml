@@ -37,12 +37,12 @@ jobs:
             if [ "${file: -3}" == ".py" ]
             then
               echo "flake8 --filename=./$file"
-              flake8 --filename=./$file
+              flake8 --filename=./$file --select=E,W
             fi
           done
 
       # - name: Lint with flake8
-      #   run: flake8 --filename=./testing-code/test4.py
+      #   run: flake8 .
 
   # - name: Run linters
   #   uses: wearerequired/lint-action@v2
