@@ -37,7 +37,7 @@ jobs:
             if [ "${file: -3}" == ".py" ]
             then
               echo "flake8 --filename=./$file"
-              flake8 --filename=./$file --select=E,W
+              flake8 --filename=./$file
             fi
           done
 
