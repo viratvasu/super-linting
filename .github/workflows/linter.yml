@@ -34,7 +34,7 @@ jobs:
       - name: List with flake8
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            flake8 --filename=./$file
+            flake8 --filename=./"$file"
           done
 
       # - name: Lint with flake8
