@@ -28,19 +28,19 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
-      # - name: Set up Python
-      #   uses: actions/setup-python@v1
-      #   with:
-      #     python-version: 3.8
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
 
-      # - name: Install Python dependencies
-      #   run: pip install flake8
+      - name: Install Python dependencies
+        run: pip install flake8
 
-      # - name: Setup flake8 annotations
-      #   uses: rbialon/flake8-annotations@v1
+      - name: Setup flake8 annotations
+        uses: rbialon/flake8-annotations@v1
 
-      # - name: Lint with flake8
-      #   run: git diff -U0 --relative | flake8 --diff
+      - name: Lint with flake8
+        run: flake8 --filename=testing-code/test4.py
 
   # - name: Run linters
   #   uses: wearerequired/lint-action@v2
