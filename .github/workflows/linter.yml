@@ -27,6 +27,7 @@ jobs:
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
+          done
       # - name: Set up Python
       #   uses: actions/setup-python@v1
       #   with:
