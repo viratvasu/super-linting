@@ -13,30 +13,20 @@ jobs:
     name: Run linters
     runs-on: ubuntu-latest
 
-    # steps:
-    #   - name: Check out Git repository
-    #     uses: actions/checkout@v2
-
-    #   - name: Set up Python
-    #     uses: actions/setup-python@v1
-    #     with:
-    #       python-version: 3.8
-
-    #   - name: Install Python dependencies
-    #     run: pip install flake8
-
-    #   - name: Run linters
-    #     uses: wearerequired/lint-action@v2
-    #     with:
-    #       black: false
-    #       flake8: true
-
     steps:
-      - uses: actions/checkout@v1
-      - uses: rahul-deepsource/pyaction@1.4.0
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
         with:
-          python-root-list: "src/ tests/"
-          use-pycodestyle: false
-          use-mypy: false
-          use-vulture: true
-          extra-pylint-options: "--output-format="colorized"
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install flake8
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          black: false
+          flake8: true
