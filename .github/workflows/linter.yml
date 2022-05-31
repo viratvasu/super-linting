@@ -25,8 +25,13 @@ jobs:
       - name: Install Python dependencies
         run: pip install flake8
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          black: false
-          flake8: true
+      - name: Setup flake8 annotations
+        uses: rbialon/flake8-annotations@v1
+        run: git diff -U0 --relative | flake8 --diff
+
+      # - name: Run linters
+      #   uses: wearerequired/lint-action@v2
+      #   with:
+      #     black: false
+      #     flake8: true
+      # git diff -U0 --relative | flake8 --diff
