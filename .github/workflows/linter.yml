@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - master
+      - staging
 
 jobs:
   run-linters:
@@ -21,7 +22,7 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install Python dependencies
+      - name: Install Python flake8
         run: pip install flake8
 
       - name: Setup flake8 annotations
@@ -31,7 +32,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v14.6
 
-      - name: List with flake8
+      - name: Lint with flake8
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [ "${file: -3}" == ".py" ]
