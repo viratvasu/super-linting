@@ -2,9 +2,6 @@ name: Python Lint
 
 on:
   pull_request:
-    branches:
-      - master
-      - staging
 
 jobs:
   run-linters:
