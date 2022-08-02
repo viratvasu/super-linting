@@ -38,7 +38,7 @@ jobs:
             if [ "${file: -3}" == ".py" ]
             then
               echo "flake8 --filename=./$file --ignore=E501"
-              flake8 --filename=./$file
+              flake8 --filename=./$file --ignore=E501
             fi
           done
 
