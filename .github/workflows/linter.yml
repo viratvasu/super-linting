@@ -37,7 +37,7 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [ "${file: -3}" == ".py" ]
             then
-              echo "flake8 --filename=./$file"
+              echo "flake8 --filename=./$file --ignore=E501"
               flake8 --filename=./$file
             fi
           done
